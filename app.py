@@ -16,6 +16,11 @@ expected_fields = [
     "Alopecia", "Obesity"
 ]
 
+@app.route("/", methods=["GET"])
+def home():
+    return "🩺 Diabetes Risk API is running on Render!"
+
+
 @app.route("/predict", methods=["POST"])
 def predict():
     try:
