@@ -1,7 +1,9 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify,send_from_directory
 from flask_cors import CORS
 import joblib
 import numpy as np
+
+
 
 app = Flask(__name__)
 CORS(app)
@@ -18,7 +20,7 @@ expected_fields = [
 
 @app.route("/", methods=["GET"])
 def home():
-    return "🩺 Diabetes Risk API is running on Render!"
+      return send_from_directory('static', 'index.html')
 
 
 @app.route("/predict", methods=["POST"])
